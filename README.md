@@ -325,3 +325,67 @@ Consider a scenario where we need to update documentation for a project called "
 GitHub automatically closes the issue when the commit is pushed. You can click on the commit ID to see the associated change and reference to the issue.
 
 This guide provides a basic understanding of tracking issues in project management. There are more advanced techniques and features to explore, but this should give you a solid foundation for efficient collaboration and issue tracking.
+
+# Automated Testing, Continuous Integration, and Continuous Deployment (CI/CD)
+
+Throughout this course, we've been making changes to our files, sometimes we ran them manually to test if they still worked after the change, sometimes we just forgot to do that. This is common for any software project no matter how big or small. As humans, we're not great at remembering to do lots of stuff so we can't rely on people remembering to test their code, not even ourselves. Luckily, we don't need to. We can write automated tests to test the code for us and then use a continuous integration or CI system to run those tests automatically.
+
+## Continuous Integration (CI)
+
+A continuous integration system will build and test our code every time there's a change. This means that it will run whenever there's a new commit in the main branch of our code. It will also run for any changes that come in through a pull request. In other words, if we have continuous integration configured for our project, we can automatically run our tests using the code in a pull request. This way, we can verify that the test will pass after the new changes get merged back into the tree and that means instead of hoping our collaborators will remember to properly test their code, we can rely on our automated testing system to do it for us.
+
+## Continuous Deployment (CD)
+
+Once we have our code automatically built and tested, the next automation step is continuous deployment which is sometimes called continuous delivery or CD. Continuous deployment means the new code is deployed often. The goal is to avoid rollouts with a lot of changes between two versions of a project and instead do incremental updates with only a few changes at a time. This allows errors to be caught and fixed early. Typical configurations include deploying a new version whenever a commit is merged into the main tree or whenever a branch is tagged for release.
+
+## Tools for CI/CD
+
+There's a large world of tools and platforms related to CI/CD which is what the whole system is usually called. One popular option is Jenkins which can be used to automate lots of different types of projects. Some repository hosting services like GitLab provide their own infrastructure for doing continuous integration. GitHub doesn't offer an integrated solution. Instead, the popular alternative is to use Travis which communicates with GitHub and can access the information from GitHub projects to know which integrations to run. No matter which tool you use, there are a bunch of concepts that you'll need to deal with when creating your own CI/CD.
+
+## CI/CD Concepts
+
+### The first one is the concept of pipelines. 
+
+A pipeline in CI/CD is a series of automated steps or stages that code changes go through from development to deployment. Pipelines are crucial for ensuring that code is thoroughly tested, built, and deployed in a controlled and consistent manner. Here's a breakdown of what pipelines typically include:
+
+- Build: The first stage of a pipeline involves compiling or building the code. This may involve transforming source code into executable binaries or preparing files for deployment.
+
+- Test: After the build stage, automated tests are executed. Testing can include unit tests to check individual code components, integration tests to ensure different parts work together, and end-to-end tests to simulate user interactions.
+
+- Quality Checks: In this stage, code quality checks may be performed. This can involve running static analysis tools to identify coding standard violations, security vulnerabilities, or other issues.
+
+- Deployment: If all previous stages pass successfully, the code is deployed to a test environment. This environment mimics the production environment but is isolated for testing purposes.
+
+- Review and Approval: Some pipelines include a manual review and approval step, where designated team members or stakeholders review the changes and approve them for further deployment.
+
+- Production Deployment: Once approved, the code can be deployed to the production environment. This is often a controlled process with rollback mechanisms in case of issues.
+
+- Monitoring and Feedback: After deployment, the application is monitored for performance, errors, and other issues. Any problems detected are addressed promptly.
+
+### Another concept that turns up when doing CI/CD is artifacts.
+
+Artifacts refer to the output files or packages generated during the CI/CD pipeline. These files are the result of various stages of the pipeline and are often used for deployment or distribution. Here are some common examples of artifacts:
+
+- Compiled Binaries: In programming languages like Java, C++, or Go, the artifact might be the compiled binary files that are ready to run.
+
+- Docker Images: In containerized applications, the artifact can be Docker images that contain the application and its dependencies. These images can be deployed to container orchestration platforms like Kubernetes.
+
+- Deployment Packages: For web applications or services, artifacts may include deployment packages like WAR files for Java applications, ZIP files, or tarballs containing the application code.
+
+- Documentation: Sometimes, artifacts include documentation files, such as user manuals, API documentation, or release notes, generated as part of the build process.
+
+- Installer Packages: In desktop or mobile application development, artifacts can be installer packages for different platforms (e.g., Windows Installer, Debian packages, macOS DMG files).
+
+- Reports: In cases where the pipeline generates reports (e.g., test reports, code analysis reports), these reports are also considered artifacts and can be valuable for post-deployment analysis.
+
+- Artifacts are typically stored in a repository or artifact storage system, making them easily accessible for deployment to various environments, sharing with team members, or archiving for future reference.
+
+When setting up CI/CD, we have to be careful about how we manage secrets. If our pipeline includes deploying a new version of the software to a test server, we need to somehow give the software that's running the pipeline access to our test server. There are a bunch of different strategies to do this, like exchanging SSH keys or using application-specific API tokens. For some pipelines, it might be unavoidable to use one of these methods, but be aware that you're giving access to your test servers to the owner of the service that's running the pipeline for you. It's a bit like giving your house keys to the person checking your heating once a year.
+
+## Security Considerations
+
+So two things to remember, first, make sure the authorized entities for the test servers are not the same entities authorized to deploy on the production servers. That way, if there's any kind of compromise in the pipeline, your production server is not affected. Second, always have a plan to recover your access in case your pipeline gets compromised.
+
+## Getting Started with Travis CI (for GitHub Projects)[optional]
+
+If you want to set up Travis for your GitHub project, you can do that by logging into the Travis website at [www.travis-ci.com](https://www.travis-ci.com) using your GitHub account, then enable the projects that you want to continuously integrate. After that, you'll need to add a configuration file to your project written in YAML format that states the language your project is in and which steps to take for the pipeline. This file can be very simple if your project files are typical configuration for the language you're using but can also become very complex if you want to run a complicated pipeline with lots of stages and steps outside the defaults. We won't go into a ton of detail here but there's more info in the next reading coming up. Feel free to read up on it and investigate on your own if you want to continuously integrate and deliver your project.
