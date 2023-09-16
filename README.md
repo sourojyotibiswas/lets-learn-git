@@ -368,7 +368,111 @@ Fetching is like getting a newspaper delivered to your door without actually rea
 
 Running this command is like looking at a list of your project's friends and seeing what they are up to. It shows you a list of remote branches, which are like versions of the project that live in other places. This way, you can stay aware of the different branches in your project's network.
 
-==================================================================
+# Solving Conflicts in Git
+
+## Pull-Merge-Push Workflow
+
+### Description
+
+In this workflow, you pull the latest changes from a remote branch, merge them into your local branch, resolve any conflicts, and then push the merged changes back to the remote repository.
+
+Example:
+
+```bash
+# Start in your local branch
+git checkout your-branch
+
+# Pull the latest changes from the remote branch
+git pull origin remote-branch
+
+# Resolve any conflicts in your text editor
+
+# Add the resolved files
+git add .
+
+# Commit the merge
+git commit -m "Merge changes from remote-branch"
+
+# Push the merged changes back to the remote repository
+git push origin your-branch
+```
+
+## Pushing Remote Branches
+
+### Description
+
+You can push your local branch to the remote repository to create a new branch. This is useful when you need to share your work or collaborate on a feature.
+
+Example:
+
+```bash
+# Create a new branch locally and switch to it
+git checkout -b new-feature
+
+# Make changes, commit them
+
+# Push the new branch to the remote repository
+git push origin new-feature
+```
+
+## Rebasing Your Changes
+
+### Description
+
+Rebasing allows you to move your changes to the tip of the branch you're rebasing onto. It can be used to integrate changes from a remote branch into your local branch, making the history cleaner.
+
+Example:
+
+```bash
+# Start in your local branch
+git checkout your-branch
+
+# Fetch the latest changes from the remote branch
+git fetch origin remote-branch
+
+# Rebase your changes on top of the latest remote changes
+git rebase origin/remote-branch
+```
+
+👉 **Note** : 
+```
+In interactive rebase, the default option for taking commits and rebasing them against the branch you selected is pick. The pick option is used to indicate that you want to keep the selected commit as-is during the rebase.
+
+Here's what each of the options does in an interactive rebase:
+
+# pick: This option keeps the commit unchanged and includes it in the rebase.
+
+# squash: This option allows you to combine the selected commit with the previous commit, effectively merging them into a single commit.
+
+# edit: This option allows you to pause the rebase process after the selected commit so that you can make changes to that specific commit (e.g., amending the commit message or modifying the commit content).
+
+# reword: This option allows you to edit the commit message of the selected commit.
+
+By default, when you start an interactive rebase, all the commits are listed with the pick option, indicating that they will be rebased as-is. You can then interactively choose to modify the behavior of each commit by changing its action in the rebase script.
+```
+
+## Fetch-Rebase-Push Workflow
+
+### Description
+
+This workflow combines fetching, rebasing, and pushing to keep your local branch up-to-date with a remote branch.
+
+Example:
+
+```bash
+# Start in your local branch
+git checkout your-branch
+
+# Fetch the latest changes from the remote branch
+git fetch origin remote-branch
+
+# Rebase your changes on top of the latest remote changes
+git rebase origin/remote-branch
+
+# Push the rebased changes back to the remote repository
+git push origin your-branch
+```
+============================================================================================================================================================
 
 # Collaboration and Pull Requests in Git
 
