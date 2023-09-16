@@ -862,3 +862,6 @@ So two things to remember, first, make sure the authorized entities for the test
 
 If you want to set up Travis for your GitHub project, you can do that by logging into the Travis website at [www.travis-ci.com](https://www.travis-ci.com) using your GitHub account, then enable the projects that you want to continuously integrate. After that, you'll need to add a configuration file to your project written in YAML format that states the language your project is in and which steps to take for the pipeline. This file can be very simple if your project files are typical configuration for the language you're using but can also become very complex if you want to run a complicated pipeline with lots of stages and steps outside the defaults. We won't go into a ton of detail here but there's more info in the next reading coming up. Feel free to read up on it and investigate on your own if you want to continuously integrate and deliver your project.
 
+## License
+
+[Bsouro911](https://github.com/Bsouro911) - Sourojyoti Biswas
