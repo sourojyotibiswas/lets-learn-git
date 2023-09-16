@@ -75,7 +75,6 @@ This command will show you a list of all commits in the repository, along with s
 
 By using this command, you can quickly get an overview of the changes made to a repository and understand how the codebase has evolved over time.
 
-<aside>
 👉 **Note**: The following text is related to the `git add -p` command.
 
 </aside>
@@ -440,13 +439,13 @@ In interactive rebase, the default option for taking commits and rebasing them a
 
 Here's what each of the options does in an interactive rebase:
 
-# pick: This option keeps the commit unchanged and includes it in the rebase.
+- pick: This option keeps the commit unchanged and includes it in the rebase.
 
-# squash: This option allows you to combine the selected commit with the previous commit, effectively merging them into a single commit.
+- squash: This option allows you to combine the selected commit with the previous commit, effectively merging them into a single commit.
 
-# edit: This option allows you to pause the rebase process after the selected commit so that you can make changes to that specific commit (e.g., amending the commit message or modifying the commit content).
+- edit: This option allows you to pause the rebase process after the selected commit so that you can make changes to that specific commit (e.g., amending the commit message or modifying the commit content).
 
-# reword: This option allows you to edit the commit message of the selected commit.
+- reword: This option allows you to edit the commit message of the selected commit.
 
 By default, when you start an interactive rebase, all the commits are listed with the pick option, indicating that they will be rebased as-is. You can then interactively choose to modify the behavior of each commit by changing its action in the rebase script.
 
