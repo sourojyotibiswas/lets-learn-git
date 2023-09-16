@@ -182,3 +182,84 @@ git rebase -i master
 # Force push the changes to your forked repository.
 git push -f origin branch-name
 ```
+
+# Code Reviews
+
+## Understanding the Code Review Workflow
+
+### Introduction
+
+This document explores the code review process, which is essential for improving code quality and collaboration in software development.
+
+### The Code Review Process
+
+#### Requesting a Code Review
+
+1. After completing a set of code changes, developers typically ask a reviewer to evaluate their work.
+
+#### Reviewer's Feedback
+
+1. Reviewers examine the code and provide feedback.
+    - This feedback can include suggestions for improvement and identifying issues.
+
+#### Addressing Review Comments
+
+1. Developers address review comments, making necessary changes.
+    - This may involve fixing typos, adding missing tests, or implementing suggested improvements.
+
+#### Marking Comments as Resolved
+
+1. After addressing a comment, it can be marked as resolved to indicate that it has been addressed.
+
+#### Seeking Clarification
+
+1. Developers can seek clarification from reviewers by replying to comments if they are unsure about a particular issue or suggestion.
+    - Comments that need further discussion are not marked as resolved.
+
+#### Approval and Merging
+
+1. Once all comments have been resolved, and the reviewer is satisfied, they approve the changes.
+2. The approved changes can then be merged into the codebase.
+
+### Understanding Review Comments
+
+#### Types of Comments
+
+1. Reviewers may provide a range of comments, including:
+    - Critical issues that require significant fixes.
+    - Minor suggestions for code improvement, often labeled as "Nits."
+
+#### Improving Code Clarity
+
+1. It's essential to use feedback as an opportunity to enhance code clarity.
+    - This can involve improving variable names or breaking down complex code into smaller functions.
+    - Adding comments and documentation to explain the "how" and "why" of code.
+
+#### Style Guide Adherence
+
+1. Code reviews often include comments about coding style.
+2. Referring to a project-specific style guide, such as PEP8 for Python, can help streamline discussions about code style.
+
+### Code Review Tools
+
+#### Approval Workflow
+
+1. Different code review tools may have varying approval workflows.
+   - Some require approval from project maintainers, while others need a few "+1s" from contributors.
+
+#### Ensuring Quality
+
+1. The goal is to ensure that code changes have been reviewed by individuals familiar with the project, ensuring its readiness for submission.
+
+### The Value of Code Reviews
+
+#### Benefits
+
+1. Code reviews benefit projects of all sizes and complexities.
+   - They facilitate team agreement on coding standards and approaches.
+   - They provide a second set of eyes to identify issues and improvements.
+
+## Tracking Issues in Project Management
+
+Collaboration and project management are crucial when working with others on a project. Without proper coordination, there's a risk of overlapping efforts and missing critical tasks. Imagine a scenario where you and your colleagues are working on building automation software for your network, but there's no clear plan. This could lead to chaos, incompatible software, and unaddressed gaps in the project.
+
