@@ -64,9 +64,9 @@ While the previous section covered creating pull requests directly through the G
 4. Click "Create pull request" to submit your request.
 5. Your pull request is created and can be reviewed by the repository maintainers.
 
-## Updating an Existing Pull Request
+### Updating an Existing Pull Request
 
-It's common to receive feedback on your pull request, prompting you to make further improvements. Here's how to update an existing pull request.
+- It's common to receive feedback on your pull request, prompting you to make further improvements. Here's how to update an existing pull request.
 
 ### Addressing Feedback
 
@@ -78,7 +78,7 @@ It's common to receive feedback on your pull request, prompting you to make furt
 
 ## Squashing Changes
 
-Sometimes, project maintainers may ask you to squash your commits into a single commit before merging. This can be done using an interactive rebase.
+- Sometimes, project maintainers may ask you to squash your commits into a single commit before merging. This can be done using an interactive rebase.
 
 ### Squashing Commits
 
@@ -90,18 +90,18 @@ Sometimes, project maintainers may ask you to squash your commits into a single 
 6. Save and close the editor.
 7. Your commits are now squashed into a single commit with an updated message.
 
-# Forking, Cloning, and Pull Requests in Git
+## Forking, Cloning, and Pull Requests in Git
 
 This guide explains essential Git operations for collaborating on projects, including forking a repository, cloning it to your local machine, creating branches, making and committing changes, and creating and updating pull requests.
 
-## Forking a Repository
+### Forking a Repository
 
 To fork a repository on GitHub using the web interface:
 
 1. Visit the repository you want to fork on GitHub.
 2. Click the "Fork" button, and GitHub will create a fork under your account.
 
-## Cloning a Repository to Your Local Machine
+### Cloning a Repository to Your Local Machine
 
 To clone your forked repository to your local machine:
 
@@ -115,26 +115,25 @@ cd repo-name
 
 Create a new branch in your local repository to work on your changes:
 
-# Replace 'branch-name' with your desired branch name.
-
 ```shell
+# Replace 'branch-name' with your desired branch name.
 git checkout -b branch-name
 ```
 
-# Make changes to your code.
-# Stage your changes for commit.
+- Make changes to your code.
 
 ```shell
+# Stage your changes for commit.
 git add .
 ```
 
-# Commit your changes with a clear message.
+### Commit your changes with a clear message.
 
 ```shell
 git commit -m "Fix the typo in validation.py"
 ```
 
-## Pushing Your Changes to Your Forked Repository
+### Pushing Your Changes to Your Forked Repository
 
 Push your changes to your forked repository on GitHub:
 
