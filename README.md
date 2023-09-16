@@ -325,4 +325,3 @@ Consider a scenario where we need to update documentation for a project called "
 GitHub automatically closes the issue when the commit is pushed. You can click on the commit ID to see the associated change and reference to the issue.
 
 This guide provides a basic understanding of tracking issues in project management. There are more advanced techniques and features to explore, but this should give you a solid foundation for efficient collaboration and issue tracking.
-
