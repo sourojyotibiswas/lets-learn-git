@@ -1,6 +1,4 @@
-# Lets-Learn-Git
-
-## Git - Github
+# Git - Github
 
 Git is a version control system that allows developers to track changes to their code over time. Github, on the other hand, is a web-based platform that provides hosting for Git repositories.
 
