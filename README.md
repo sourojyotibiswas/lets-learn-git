@@ -16,7 +16,6 @@ Overall, Git and Github are powerful tools that are widely used by developers ar
 
 - While diff is the command that generates the difference between two files, patch is the command that applies those differences to the original file.
 
-patch <filename> < <diff_filename>
 
 A version control system allows us to keep track of changes made to our files, including code, configuration, images, and more. This helps us to easily see who made what changes and when, allowing for better collaboration and organization within a project.
 
@@ -33,11 +32,10 @@ By using this cycle of modifying, staging, and committing, you can keep track of
 
 A good commit message is clear and concise, and explains what changes were made and why. It should be written in the present tense and provide a high-level overview of the changes. Here is an example of a good commit message:
 
-```
-Add new feature for user authentication (approx 50 charecters)
+```sh
+Add new feature for user authentication #(approx 50 charecters)
 
-This commit adds a new feature for user authentication that allows users to log in using their email address in addition to their username. This feature improves the user experience and makes the login process more secure. (approx 72 charecters per line)
-
+This commit adds a new feature for user authentication that allows users to log in using their email address in addition to their username. This feature improves the user experience and makes the login process more secure. #(approx 72 charecters per line)
 ```
 
 The first line of the commit message should be a short summary of the changes, followed by a blank line and a more detailed explanation of the changes. It's also a good practice to reference any related issues or pull requests in the commit message.
@@ -48,7 +46,7 @@ When you use the `git commit` command with the `-a` and `-m` options, you are te
 
 For example, if you wanted to commit all changes in the working directory with the message "Update [README.md](http://readme.md/)", you would use the following command:
 
-```
+```sh
 git commit -a -m "Update README.md"
 ```
 
@@ -56,26 +54,25 @@ To view the changes made in a specific commit, you can use the command `git show
 
 For example, if you wanted to view the changes made in the commit with the ID `abc123`, you would use the following command:
 
-```
+```sh
 git show abc123
-
 ```
 
 This will display the details of the commit and the changes made in that commit.
 
 To view a summary of commit statistics, you can use the command `git log --stat`. This will display a list of all commits in the repository, along with information on the number of files changed, the number of lines added and removed, and the commit message.
 
-```bash
-$ git log --stat
+```sh
+git log --stat
 ```
 
 This command will show you a list of all commits in the repository, along with summary statistics for each commit. The statistics will include the number of files changed, the number of lines added and removed, and the commit message.
 
 By using this command, you can quickly get an overview of the changes made to a repository and understand how the codebase has evolved over time.
 
-👉 **Note**: The following text is related to the `git add -p` command.
+👉 **Note**: 
+>The following text is related to the `git add -p` command.
 
-</aside>
 
 The `git add -p` command is a powerful tool that allows you to selectively stage changes to your codebase. When you run this command, Git will prompt you with each change that has been made and ask you whether you want to stage it or not.
 
@@ -83,8 +80,8 @@ This can be useful when you have made a number of changes to a file but only wan
 
 To use the `git add -p` command, simply run the following command within your working directory:
 
-```bash
-$ git add -p
+```sh
+git add -p
 ```
 
 Git will then prompt you with each change that has been made and ask you whether you want to stage it or not. You can use the `y` key to stage the change, the `n` key to skip the change, and the `s` key to split the change into smaller pieces.
@@ -95,8 +92,8 @@ When you use the command `git diff --staged`, Git will display the differences b
 
 For example, if you wanted to see the differences between your staged changes and the previous commit, you would use the following command:
 
-```bash
-$ git diff --staged
+```sh
+git diff --staged
 ```
 
 Git will then display the differences between your staged changes and the previous commit, allowing you to review the changes before committing them.
@@ -105,8 +102,8 @@ By using this command, you can ensure that you are only committing changes that 
 
 The **`git mv`** command is used to rename or move a file within a Git repository. To use it, replace **`<file_name>`** with the current name of the file you want to rename or move, and **`<new_file_name>`** with the new name or new location you want to assign to the file.
 
-```bash
-$ git mv <file_name> <new_file_name>
+```sh
+git mv <file_name> <new_file_name>
 ```
 
 This command will rename the file in your working directory and stage the change for the next commit. To complete the operation and commit the change, you can use the **`git commit`**
@@ -115,7 +112,7 @@ The **`git rm`** command is used to remove files from your Git repository. It no
 
 Here's the basic syntax of the **`git rm`** command:
 
-```bash
+```sh
 git rm <file_name>
 git rm -f <f_n>
 ```
@@ -124,7 +121,7 @@ The command you've provided, **`echo .DS_STORE > .gitignore`**, will create a **
 
 If you want to create a **`.gitignore`** file that ignores **`.DS_STORE`** and other common files or directories, you can use the following commands:
 
-```bash
+```sh
 echo ".DS_STORE" >> .gitignore  # Appends .DS_STORE to .gitignore if it exists
 echo "node_modules/" >> .gitignore  # Ignore the node_modules directory
 echo "*.log" >> .gitignore  # Ignore log files, e.g., any file with a .log extension
@@ -136,7 +133,7 @@ The **`git checkout <file_name>`** command is used to discard changes made to a 
 
 Here's the basic syntax:
 
-```bash
+```sh
 git checkout <file_name>
 ```
 
@@ -144,7 +141,7 @@ The **`git reset HEAD <file_name>`** command is used to unstage changes for a sp
 
 Here's the basic syntax:
 
-```bash
+```sh
 git reset HEAD <file_name>
 ```
 
@@ -156,7 +153,7 @@ Here's how you can use **`git commit --amend`**:
     
     If you want to modify the commit message of the last commit, you can use the following command:
     
-    ```bash
+    ```sh
     git commit --amend -m "New commit message"
     ```
     
@@ -172,14 +169,15 @@ Here's how you can use **`git commit --amend`**:
     
     c. Use **`git commit --amend`** without the **`-m`** option:
     
-    ```bash
+    ```sh
     git commit --amend
     ```
     
     This will open your default text editor, allowing you to modify the commit message if needed. Save and close the editor to finalize the commit.
     
 
-**Important Note:** Be cautious when using **`git commit --amend`**, especially if you've already pushed the original commit to a shared repository. Modifying a commit rewrites its history, which can cause problems for collaborators. It's generally safe to use **`git commit --amend`** for commits that haven't been pushed yet, but exercise caution when making changes to shared commits.
+**Important Note:** 
+> Be cautious when using **`git commit --amend`**, especially if you've already pushed the original commit to a shared repository. Modifying a commit rewrites its history, which can cause problems for collaborators. It's generally safe to use **`git commit --amend`** for commits that haven't been pushed yet, but exercise caution when making changes to shared commits.
 
 - With ***git revert***, a new commit is created with inverse changes. This cancels previous changes instead of making it as though the original commit never happened.
 
@@ -187,20 +185,16 @@ The **`git revert`** command is used to create a new commit that undoes the chan
 
 Here's the basic syntax of **`git revert`**:
 
-```bash
-bashCopy code
+```sh
 git revert <commit_sha>
-
 ```
 
 - **`<commit_sha>`** is the SHA-1 hash of the commit you want to revert. You can find the commit SHA by using **`git log`**.
 
 For example, if you want to revert the changes made in the commit with a specific SHA-1 hash (e.g., **`abcdef123456`**), you would run:
 
-```bash
-bashCopy code
+```sh
 git revert abcdef123456
-
 ```
 
 After running this command, Git will create a new commit that undoes the changes introduced by the specified commit. This new commit will have a commit message indicating that it's a "revert" of the original commit.
@@ -209,10 +203,8 @@ It's important to note that **`git revert`** does not remove or delete the origi
 
 If you want to revert multiple commits, you can specify a range of commits using a commit range, like this:
 
-```bash
-bashCopy code
+```sh
 git revert <start_commit>^..<end_commit>
-
 ```
 
 - **`<start_commit>`** is the commit at the start of the range (inclusive).
@@ -220,10 +212,8 @@ git revert <start_commit>^..<end_commit>
 
 For example:
 
-```bash
-bashCopy code
+```sh
 git revert abcdef123456^..fedcba987654
-
 ```
 
 This will revert all the commits in the range from **`abcdef123456`** (inclusive) to **`fedcba987654`** (exclusive).
@@ -238,7 +228,7 @@ Here's a breakdown of the key points:
 4. **Branching and Merging:** You can create branches to work on new features, bug fixes, or experiments independently. When you make new commits on a branch, the branch pointer moves forward to the latest commit. When you merge one branch into another, Git essentially combines the changes from both branches and updates the branch pointer to the new merge commit.
 5. **Branching Workflow:** Git's branching model allows you to easily switch between different snapshots of your project, collaborate with others, and maintain a clear history of changes.
 
-- ***git checkout*** switch branches by - The HEAD is moved to the relevant commit on the specified branch.
+- ***git checkout*** switch branches by: The HEAD is moved to the relevant commit on the specified branch.
 
 - If there are changes in the branch we want to delete that haven't been merged back into the master branch, git will let us know with an error.
 - Merging combines branched data and history together.
@@ -251,7 +241,7 @@ This guide explains the concepts of branching and merging in Git, along with the
 
 A branch in Git is a lightweight, movable pointer to a specific commit. Branches allow you to work on different features or bug fixes independently without affecting the main codebase.
 
-## Creating a New Branch
+### Creating a New Branch
 
 To create a new branch, use the following commands:
 
@@ -266,7 +256,7 @@ git branch <name>
 git checkout -b <branch>
 ```
 
-## Working with Branches
+### Working with Branches
 
 ```bash
 # Switch to an existing branch
@@ -287,7 +277,7 @@ Merging combines changes from one branch into another. Use the following command
 git merge <branch>
 ```
 
-## Merge Conflicts
+### Merge Conflicts
 Sometimes, conflicts arise when Git can't automatically merge changes. To resolve conflicts:
 
 ```bash
@@ -331,45 +321,43 @@ Additional helpful links:
 
 # Working with Git Remotes
 
-## What is Remote
+### What is Remote
 
 In Git, a **remote** is like a connection to another copy of a repository, typically located on a server or another user's computer. Think of it as a way to share and collaborate on code with others. Remote repositories help you work together on the same project without being in the same place.
 
-## Working with Remote
+### Working with Remote
 
-### `git remote`
+ `git remote`
 
 When you run `git remote`, Git tells you the names of all the connections (remotes) you have to other repositories. Imagine it as a list of your project's friends – these are the remotes you can interact with.
 
-### `git remote -v`
+ `git remote -v`
 
 Adding `-v` to the command shows not only the names of your remotes but also the web addresses (URLs) where they live. It's like getting the phone numbers of your project's friends so you can call them when needed.
 
-### `git remote show <name>`
+ `git remote show <name>`
 
 This command is like asking for more details about one of your project's friends. It tells you information about a specific remote, such as what branches it knows about and where it lives on the internet.
 
-## Fetching New Changes
+### Fetching New Changes
 
-### `git remote update`
+ `git remote update`
 
 When you tell Git to `update`, it's like asking your project's friends if they have any news or updates for you. This command fetches the latest information from the remote repositories, making sure your project stays informed.
 
-### `git fetch`
+ `git fetch`
 
 Fetching is like getting a newspaper delivered to your door without actually reading it. Git `fetch`es changes from remote but doesn't automatically apply them to your project. It's a way to see what's new without making changes to your project.
 
-## Updating the Local Repository
+### Updating the Local Repository
 
-### `git branch -r`
+ `git branch -r`
 
 Running this command is like looking at a list of your project's friends and seeing what they are up to. It shows you a list of remote branches, which are like versions of the project that live in other places. This way, you can stay aware of the different branches in your project's network.
 
 # Solving Conflicts in Git
 
-## Pull-Merge-Push Workflow
-
-### Description
+### Pull-Merge-Push Workflow
 
 In this workflow, you pull the latest changes from a remote branch, merge them into your local branch, resolve any conflicts, and then push the merged changes back to the remote repository.
 
@@ -394,9 +382,7 @@ git commit -m "Merge changes from remote-branch"
 git push origin your-branch
 ```
 
-## Pushing Remote Branches
-
-### Description
+### Pushing Remote Branches
 
 You can push your local branch to the remote repository to create a new branch. This is useful when you need to share your work or collaborate on a feature.
 
@@ -412,9 +398,7 @@ git checkout -b new-feature
 git push origin new-feature
 ```
 
-## Rebasing Your Changes
-
-### Description
+### Rebasing Your Changes
 
 Rebasing allows you to move your changes to the tip of the branch you're rebasing onto. It can be used to integrate changes from a remote branch into your local branch, making the history cleaner.
 
@@ -433,7 +417,7 @@ git rebase origin/remote-branch
 
 *👉 **Note** :* 
 
-In interactive rebase, the default option for taking commits and rebasing them against the branch you selected is pick. The pick option is used to indicate that you want to keep the selected commit as-is during the rebase.
+> In interactive rebase, the default option for taking commits and rebasing them against the branch you selected is pick. The pick option is used to indicate that you want to keep the selected commit as-is during the rebase.
 
 Here's what each of the options does in an interactive rebase:
 
@@ -448,9 +432,7 @@ Here's what each of the options does in an interactive rebase:
 By default, when you start an interactive rebase, all the commits are listed with the pick option, indicating that they will be rebased as-is. You can then interactively choose to modify the behavior of each commit by changing its action in the rebase script.
 
 
-## Fetch-Rebase-Push Workflow
-
-### Description
+### Fetch-Rebase-Push Workflow
 
 This workflow combines fetching, rebasing, and pushing to keep your local branch up-to-date with a remote branch.
 
@@ -478,11 +460,11 @@ Collaboration is a key aspect of successful project management, and Git provides
 
 Collaboration in Git involves sharing code changes both locally and remotely. Git offers a range of features to streamline the process, including handling conflicts, tracking work, and contributing to projects hosted on platforms like GitHub.
 
-## Collaborative Development Platforms
+### Collaborative Development Platforms
 
 GitHub, among other platforms, has gained immense popularity for fostering collaboration across various projects. It allows anyone to learn, contribute, and collaborate on code. Let's dive into some essential concepts and workflows for effective collaboration.
 
-## A Simple Pull Request on GitHub
+### A Simple Pull Request on GitHub
 
 A pull request (PR) is a fundamental mechanism for suggesting changes to a project on GitHub. It allows you to propose code modifications, enhancements, or bug fixes to a repository you don't have direct access to. Here's how to create a simple pull request on GitHub.
 
@@ -600,7 +582,7 @@ git add .
 ### Commit your changes with a clear message.
 
 ```shell
-git commit -m "Fix the typo in validation.py"
+git commit -m "Fix the typo in numbers.py"
 ```
 
 ### Pushing Your Changes to Your Forked Repository
@@ -621,7 +603,7 @@ After pushing your changes, create a pull request from your GitHub account:
 - Review your changes and provide a description.
 - Click "Create Pull Request" to submit your pull request.
 
-## Updating an Existing Pull Request
+### Updating an Existing Pull Request
 
 If you receive feedback on your pull request and need to make updates:
 
@@ -635,7 +617,7 @@ git commit -m "Address feedback from code review"
 git push origin branch-name
 ```
 
-## Squashing Commits
+### Squashing Commits
 
 To squash multiple commits into a single commit interactively:
 
@@ -653,79 +635,71 @@ git rebase -i master
 git push -f origin branch-name
 ```
 
-# Code Reviews
-
 ## Understanding the Code Review Workflow
-
-### Introduction
-
-This document explores the code review process, which is essential for improving code quality and collaboration in software development.
-
-### The Code Review Process
 
 #### Requesting a Code Review
 
-1. After completing a set of code changes, developers typically ask a reviewer to evaluate their work.
+- After completing a set of code changes, developers typically ask a reviewer to evaluate their work.
 
 #### Reviewer's Feedback
 
-1. Reviewers examine the code and provide feedback.
+-  Reviewers examine the code and provide feedback.
     - This feedback can include suggestions for improvement and identifying issues.
 
 #### Addressing Review Comments
 
-1. Developers address review comments, making necessary changes.
+- Developers address review comments, making necessary changes.
     - This may involve fixing typos, adding missing tests, or implementing suggested improvements.
 
 #### Marking Comments as Resolved
 
-1. After addressing a comment, it can be marked as resolved to indicate that it has been addressed.
+- After addressing a comment, it can be marked as resolved to indicate that it has been addressed.
 
 #### Seeking Clarification
 
-1. Developers can seek clarification from reviewers by replying to comments if they are unsure about a particular issue or suggestion.
+- Developers can seek clarification from reviewers by replying to comments if they are unsure about a particular issue or suggestion.
     - Comments that need further discussion are not marked as resolved.
 
 #### Approval and Merging
 
-1. Once all comments have been resolved, and the reviewer is satisfied, they approve the changes.
-2. The approved changes can then be merged into the codebase.
+- Once all comments have been resolved, and the reviewer is satisfied, they approve the changes.
+- The approved changes can then be merged into the codebase.
 
-### Understanding Review Comments
+## Understanding Review Comments
 
-#### Types of Comments
+### Types of Comments
 
-1. Reviewers may provide a range of comments, including:
+- Reviewers may provide a range of comments, including:
     - Critical issues that require significant fixes.
     - Minor suggestions for code improvement, often labeled as "Nits."
 
 #### Improving Code Clarity
 
-1. It's essential to use feedback as an opportunity to enhance code clarity.
+- It's essential to use feedback as an opportunity to enhance code clarity.
     - This can involve improving variable names or breaking down complex code into smaller functions.
     - Adding comments and documentation to explain the "how" and "why" of code.
 
 #### Style Guide Adherence
 
-1. Code reviews often include comments about coding style.
-2. Referring to a project-specific style guide, such as PEP8 for Python, can help streamline discussions about code style.
+- Code reviews often include comments about coding style.
+- Referring to a project-specific style guide, such as PEP8 for Python, can help streamline discussions about code style.
 
-### Code Review Tools
+## Code Review Tools
 
-#### Approval Workflow
+### Approval Workflow
 
-1. Different code review tools may have varying approval workflows.
+- Different code review tools may have varying approval workflows.
    - Some require approval from project maintainers, while others need a few "+1s" from contributors.
 
 #### Ensuring Quality
 
-1. The goal is to ensure that code changes have been reviewed by individuals familiar with the project, ensuring its readiness for submission.
+- The goal is to ensure that code changes have been reviewed by individuals familiar with the project, ensuring its readiness for submission.
 
 ### The Value of Code Reviews
 
 #### Benefits
 
-1. Code reviews benefit projects of all sizes and complexities.
+- Code reviews benefit projects of all sizes and complexities.
    - They facilitate team agreement on coding standards and approaches.
    - They provide a second set of eyes to identify issues and improvements.
 
@@ -814,7 +788,7 @@ There's a large world of tools and platforms related to CI/CD which is what the 
 
 ## CI/CD Concepts
 
-### The first one is the concept of pipelines. 
+### The first one is the concept of **Pipelines**. 
 
 A pipeline in CI/CD is a series of automated steps or stages that code changes go through from development to deployment. Pipelines are crucial for ensuring that code is thoroughly tested, built, and deployed in a controlled and consistent manner. Here's a breakdown of what pipelines typically include:
 
@@ -832,7 +806,7 @@ A pipeline in CI/CD is a series of automated steps or stages that code changes g
 
 - Monitoring and Feedback: After deployment, the application is monitored for performance, errors, and other issues. Any problems detected are addressed promptly.
 
-### Another concept that turns up when doing CI/CD is artifacts.
+### Another concept that turns up when doing CI/CD is **Artifacts**.
 
 Artifacts refer to the output files or packages generated during the CI/CD pipeline. These files are the result of various stages of the pipeline and are often used for deployment or distribution. Here are some common examples of artifacts:
 
