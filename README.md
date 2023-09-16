@@ -1,5 +1,253 @@
 # Lets-Learn-Git
 
+## Git - Github
+
+Git is a version control system that allows developers to track changes to their code over time. Github, on the other hand, is a web-based platform that provides hosting for Git repositories.
+
+Github provides a number of features that make it an attractive option for developers using Git. For example, Github makes it easy to collaborate with other developers by allowing them to fork a repository and make changes in their own copy. Developers can then submit a pull request to the original repository owner, who can evaluate the changes and merge them into the main codebase if they are deemed acceptable.
+
+Github also provides a number of tools for managing issues related to a project. Developers can create issues to keep track of bugs, feature requests, and other tasks related to the project. Issues can be assigned to specific developers, labeled, and tracked in a number of different ways.
+
+Overall, Git and Github are powerful tools that are widely used by developers around the world. Whether you're working on a personal project or collaborating with a team, they can help you manage changes to your codebase and keep track of issues related to your project.
+
+- A version control system allows us to keep track of when and who did what changes to our files. Those can be code, configuration, images, or whatever else we need to track.
+
+- The diff tool shows all the differences between any type of file. By highlighting what’s changed, it helps us understand the changes and see how the files have been modified.
+
+- meld, kdiff3, vimdiff shows difference in two files graphically
+
+- While diff is the command that generates the difference between two files, patch is the command that applies those differences to the original file.
+
+patch <filename> < <diff_filename>
+
+A version control system allows us to keep track of changes made to our files, including code, configuration, images, and more. This helps us to easily see who made what changes and when, allowing for better collaboration and organization within a project.
+
+- One of the main benefits of a VCS is that you can see the history of how files changed and understand what changed at each step and what motivated the change.
+- By having each change tracked in the VCS, it's very easy to go back to previous versions when an issue with a change is discovered.
+
+The modified, staged, and commit cycle is a fundamental concept in Git. When working with Git, you typically make changes to your files in your local working directory. These changes are considered "modified." In order to commit these changes to your repository, you first need to stage them using the `git add` command. This tells Git that you want to include these changes in your next commit.
+
+Once you have staged your changes, you can then commit them to your repository using the `git commit` command. This creates a new commit in your repository's history that includes the changes you made. It's important to write a descriptive commit message that explains what changes you made and why.
+
+By using this cycle of modifying, staging, and committing, you can keep track of changes to your codebase over time and collaborate effectively with other developers.
+
+## Anatomy of a Commit Message
+
+A good commit message is clear and concise, and explains what changes were made and why. It should be written in the present tense and provide a high-level overview of the changes. Here is an example of a good commit message:
+
+```
+Add new feature for user authentication (approx 50 charecters)
+
+This commit adds a new feature for user authentication that allows users to log in using their email address in addition to their username. This feature improves the user experience and makes the login process more secure. (approx 72 charecters per line)
+
+```
+
+The first line of the commit message should be a short summary of the changes, followed by a blank line and a more detailed explanation of the changes. It's also a good practice to reference any related issues or pull requests in the commit message.
+
+By following these guidelines, you can write clear and effective commit messages that help you and your team stay organized and on track.
+
+When you use the `git commit` command with the `-a` and `-m` options, you are telling Git to commit all changes in the working directory and write a commit message at the same time. The `-a` option stands for "all" and tells Git to stage all modified files before committing. The `-m` option allows you to write a commit message directly on the command line.
+
+For example, if you wanted to commit all changes in the working directory with the message "Update [README.md](http://readme.md/)", you would use the following command:
+
+```
+git commit -a -m "Update README.md"
+```
+
+To view the changes made in a specific commit, you can use the command `git show <commit_id>`. This will display the details of the commit, including the commit message, author, date, and the actual changes made in the commit.
+
+For example, if you wanted to view the changes made in the commit with the ID `abc123`, you would use the following command:
+
+```
+git show abc123
+
+```
+
+This will display the details of the commit and the changes made in that commit.
+
+To view a summary of commit statistics, you can use the command `git log --stat`. This will display a list of all commits in the repository, along with information on the number of files changed, the number of lines added and removed, and the commit message.
+
+```bash
+$ git log --stat
+```
+
+This command will show you a list of all commits in the repository, along with summary statistics for each commit. The statistics will include the number of files changed, the number of lines added and removed, and the commit message.
+
+By using this command, you can quickly get an overview of the changes made to a repository and understand how the codebase has evolved over time.
+
+<aside>
+👉 **Note**: The following text is related to the `git add -p` command.
+
+</aside>
+
+The `git add -p` command is a powerful tool that allows you to selectively stage changes to your codebase. When you run this command, Git will prompt you with each change that has been made and ask you whether you want to stage it or not.
+
+This can be useful when you have made a number of changes to a file but only want to commit some of them. By using the `git add -p` command, you can review each change and decide whether or not to include it in your commit.
+
+To use the `git add -p` command, simply run the following command within your working directory:
+
+```bash
+$ git add -p
+```
+
+Git will then prompt you with each change that has been made and ask you whether you want to stage it or not. You can use the `y` key to stage the change, the `n` key to skip the change, and the `s` key to split the change into smaller pieces.
+
+By using the `git add -p` command, you can keep your commits focused and organized, and ensure that you only commit changes that are relevant to your project.
+
+When you use the command `git diff --staged`, Git will display the differences between your staged changes and the previous commit. This can be useful for reviewing the changes you are about to commit and ensuring that you are only committing changes that are relevant to your project.
+
+For example, if you wanted to see the differences between your staged changes and the previous commit, you would use the following command:
+
+```bash
+$ git diff --staged
+```
+
+Git will then display the differences between your staged changes and the previous commit, allowing you to review the changes before committing them.
+
+By using this command, you can ensure that you are only committing changes that are relevant to your project and avoid including unnecessary changes in your commits.
+
+The **`git mv`** command is used to rename or move a file within a Git repository. To use it, replace **`<file_name>`** with the current name of the file you want to rename or move, and **`<new_file_name>`** with the new name or new location you want to assign to the file.
+
+```bash
+$ git mv <file_name> <new_file_name>
+```
+
+This command will rename the file in your working directory and stage the change for the next commit. To complete the operation and commit the change, you can use the **`git commit`**
+
+The **`git rm`** command is used to remove files from your Git repository. It not only deletes the file from your working directory but also stages the removal so that you can commit the change.
+
+Here's the basic syntax of the **`git rm`** command:
+
+```bash
+git rm <file_name>
+git rm -f <f_n>
+```
+
+The command you've provided, **`echo .DS_STORE > .gitignore`**, will create a **`.gitignore`** file in your current directory with the content **`.DS_STORE`**. However, it's important to note that **`.DS_STORE`** is a macOS-specific system file, and you may want to ignore it in your Git repository to prevent it from being tracked.
+
+If you want to create a **`.gitignore`** file that ignores **`.DS_STORE`** and other common files or directories, you can use the following commands:
+
+```bash
+echo ".DS_STORE" >> .gitignore  # Appends .DS_STORE to .gitignore if it exists
+echo "node_modules/" >> .gitignore  # Ignore the node_modules directory
+echo "*.log" >> .gitignore  # Ignore log files, e.g., any file with a .log extension
+```
+
+The **`>>`** operator appends the specified content to the **`.gitignore`** file
+
+The **`git checkout <file_name>`** command is used to discard changes made to a specific file in your Git working directory and replace it with the version of the file from the most recent commit.
+
+Here's the basic syntax:
+
+```bash
+git checkout <file_name>
+```
+
+The **`git reset HEAD <file_name>`** command is used to unstage changes for a specific file in your Git repository. It removes the file from the staging area, effectively "unstaging" it while keeping your local changes intact.
+
+Here's the basic syntax:
+
+```bash
+git reset HEAD <file_name>
+```
+
+The **`git commit --amend`** command is used to make changes to the most recent Git commit. It allows you to modify the commit message or add changes you may have forgotten to include in the last commit.
+
+Here's how you can use **`git commit --amend`**:
+
+1. **Change the Commit Message:**
+    
+    If you want to modify the commit message of the last commit, you can use the following command:
+    
+    ```bash
+    git commit --amend -m "New commit message"
+    ```
+    
+    Replace "New commit message" with the updated message you want to use. This command will replace the commit message of the last commit.
+    
+2. **Add Changes:**
+    
+    If you've made additional changes to the files in your working directory that you want to include in the last commit, follow these steps:
+    
+    a. Make your changes to the files.
+    
+    b. Stage those changes using **`git add`**.
+    
+    c. Use **`git commit --amend`** without the **`-m`** option:
+    
+    ```bash
+    git commit --amend
+    ```
+    
+    This will open your default text editor, allowing you to modify the commit message if needed. Save and close the editor to finalize the commit.
+    
+
+**Important Note:** Be cautious when using **`git commit --amend`**, especially if you've already pushed the original commit to a shared repository. Modifying a commit rewrites its history, which can cause problems for collaborators. It's generally safe to use **`git commit --amend`** for commits that haven't been pushed yet, but exercise caution when making changes to shared commits.
+
+- With ***git revert***, a new commit is created with inverse changes. This cancels previous changes instead of making it as though the original commit never happened.
+
+The **`git revert`** command is used to create a new commit that undoes the changes made in a previous commit. It's a safe way to reverse the effects of a commit without rewriting Git history. When you run **`git revert`**, Git will create a new commit with the opposite changes, effectively "reverting" the commit you specify.
+
+Here's the basic syntax of **`git revert`**:
+
+```bash
+bashCopy code
+git revert <commit_sha>
+
+```
+
+- **`<commit_sha>`** is the SHA-1 hash of the commit you want to revert. You can find the commit SHA by using **`git log`**.
+
+For example, if you want to revert the changes made in the commit with a specific SHA-1 hash (e.g., **`abcdef123456`**), you would run:
+
+```bash
+bashCopy code
+git revert abcdef123456
+
+```
+
+After running this command, Git will create a new commit that undoes the changes introduced by the specified commit. This new commit will have a commit message indicating that it's a "revert" of the original commit.
+
+It's important to note that **`git revert`** does not remove or delete the original commit. Instead, it adds a new commit that negates the changes from the original commit.
+
+If you want to revert multiple commits, you can specify a range of commits using a commit range, like this:
+
+```bash
+bashCopy code
+git revert <start_commit>^..<end_commit>
+
+```
+
+- **`<start_commit>`** is the commit at the start of the range (inclusive).
+- **`<end_commit>`** is the commit at the end of the range (exclusive).
+
+For example:
+
+```bash
+bashCopy code
+git revert abcdef123456^..fedcba987654
+
+```
+
+This will revert all the commits in the range from **`abcdef123456`** (inclusive) to **`fedcba987654`** (exclusive).
+
+In Git, each branch is essentially a pointer to a specific commit within a series of snapshots. This concept is fundamental to understanding how Git manages version control.
+
+Here's a breakdown of the key points:
+
+1. **Commits:** Commits are the core building blocks of Git. Each commit represents a specific state of your project at a particular point in time. A commit contains a snapshot of the entire project's files and directories.
+2. **Branches:** Branches in Git are lightweight pointers or references that point to a specific commit. They make it easy to work on different lines of development simultaneously. When you create a new branch, it essentially creates a new pointer to a specific commit.
+3. **HEAD:** The term "HEAD" is used in Git to refer to the currently checked-out branch or commit. It's essentially a special pointer that points to the tip of the currently checked-out branch.
+4. **Branching and Merging:** You can create branches to work on new features, bug fixes, or experiments independently. When you make new commits on a branch, the branch pointer moves forward to the latest commit. When you merge one branch into another, Git essentially combines the changes from both branches and updates the branch pointer to the new merge commit.
+5. **Branching Workflow:** Git's branching model allows you to easily switch between different snapshots of your project, collaborate with others, and maintain a clear history of changes.
+
+- ***git checkout*** switch branches by - The HEAD is moved to the relevant commit on the specified branch.
+
+- If there are changes in the branch we want to delete that haven't been merged back into the master branch, git will let us know with an error.
+- Merging combines branched data and history together.
+
+=======================================================================================================================================================================================================
+
 # Collaboration and Pull Requests in Git
 
 Collaboration is a key aspect of successful project management, and Git provides powerful tools for working together on code. In this document, we'll explore how to use Git for collaboration, especially when it comes to creating and managing pull requests.
@@ -389,3 +637,4 @@ So two things to remember, first, make sure the authorized entities for the test
 ## Getting Started with Travis CI (for GitHub Projects)[optional]
 
 If you want to set up Travis for your GitHub project, you can do that by logging into the Travis website at [www.travis-ci.com](https://www.travis-ci.com) using your GitHub account, then enable the projects that you want to continuously integrate. After that, you'll need to add a configuration file to your project written in YAML format that states the language your project is in and which steps to take for the pipeline. This file can be very simple if your project files are typical configuration for the language you're using but can also become very complex if you want to run a complicated pipeline with lots of stages and steps outside the defaults. We won't go into a ton of detail here but there's more info in the next reading coming up. Feel free to read up on it and investigate on your own if you want to continuously integrate and deliver your project.
+
