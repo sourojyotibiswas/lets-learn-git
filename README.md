@@ -434,8 +434,8 @@ git fetch origin remote-branch
 git rebase origin/remote-branch
 ```
 
-👉 **Note** : 
-```
+*👉 **Note** :* 
+
 In interactive rebase, the default option for taking commits and rebasing them against the branch you selected is pick. The pick option is used to indicate that you want to keep the selected commit as-is during the rebase.
 
 Here's what each of the options does in an interactive rebase:
@@ -449,7 +449,7 @@ Here's what each of the options does in an interactive rebase:
 # reword: This option allows you to edit the commit message of the selected commit.
 
 By default, when you start an interactive rebase, all the commits are listed with the pick option, indicating that they will be rebased as-is. You can then interactively choose to modify the behavior of each commit by changing its action in the rebase script.
-```
+
 
 ## Fetch-Rebase-Push Workflow
 
@@ -472,7 +472,6 @@ git rebase origin/remote-branch
 # Push the rebased changes back to the remote repository
 git push origin your-branch
 ```
-============================================================================================================================================================
 
 # Collaboration and Pull Requests in Git
 
