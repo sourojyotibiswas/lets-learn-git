@@ -220,6 +220,17 @@ This will revert all the commits in the range from **`abcdef123456`** (inclusive
 
 In Git, each branch is essentially a pointer to a specific commit within a series of snapshots. This concept is fundamental to understanding how Git manages version control.
 
+**Note**
+```sh
+# Here’s a complete example of changing the last commit message already pushed:
+
+git log                       # Find the commit hash
+git rebase -i HEAD~1         # Start interactive rebase for the last commit
+# Change 'pick' to 'reword' and save
+# Update the commit message and save
+git push --force             # Push changes to remote
+```
+
 Here's a breakdown of the key points:
 
 1. **Commits:** Commits are the core building blocks of Git. Each commit represents a specific state of your project at a particular point in time. A commit contains a snapshot of the entire project's files and directories.
