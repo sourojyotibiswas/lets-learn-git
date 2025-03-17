@@ -16,7 +16,6 @@ Overall, Git and Github are powerful tools that are widely used by developers ar
 
 - While diff is the command that generates the difference between two files, patch is the command that applies those differences to the original file.
 
-
 A version control system allows us to keep track of changes made to our files, including code, configuration, images, and more. This helps us to easily see who made what changes and when, allowing for better collaboration and organization within a project.
 
 - One of the main benefits of a VCS is that you can see the history of how files changed and understand what changed at each step and what motivated the change.
@@ -122,6 +121,34 @@ For example, if you wanted to commit all changes in the working directory with t
 git commit -a -m "Update README.md"
 ```
 
+You can add a commit message for only specific files using the following steps:
+
+**Stage only specific files**
+
+```sh
+git add file1.txt file2.js
+```
+
+This adds only `file1.txt` and `file2.js` to the staging area.
+
+**Commit with a message**
+
+```sh
+git commit -m "Updated file1 and file2 with new changes"
+```
+
+This commits only the staged files (`file1.txt` and `file2.js`).
+
+**Alternative: Commit without staging all changes**
+
+> If you have unstaged changes and only want to commit specific files without adding them first, use:
+
+```sh
+git commit file1.txt file2.js -m "Updated specific files"
+```
+
+> This directly commits only the specified files without staging them first.
+
 To view the changes made in a specific commit, you can use the command `git show <commit_id>`. This will display the details of the commit, including the commit message, author, date, and the actual changes made in the commit.
 
 For example, if you wanted to view the changes made in the commit with the ID `abc123`, you would use the following command:
@@ -142,9 +169,9 @@ This command will show you a list of all commits in the repository, along with s
 
 By using this command, you can quickly get an overview of the changes made to a repository and understand how the codebase has evolved over time.
 
-👉 **Note**: 
->The following text is related to the `git add -p` command.
+👉 **Note**:
 
+> The following text is related to the `git add -p` command.
 
 The `git add -p` command is a powerful tool that allows you to selectively stage changes to your codebase. When you run this command, Git will prompt you with each change that has been made and ask you whether you want to stage it or not.
 
@@ -222,36 +249,36 @@ The **`git commit --amend`** command is used to make changes to the most recent 
 Here's how you can use **`git commit --amend`**:
 
 1. **Change the Commit Message:**
-    
-    If you want to modify the commit message of the last commit, you can use the following command:
-    
-    ```sh
-    git commit --amend -m "New commit message"
-    ```
-    
-    Replace "New commit message" with the updated message you want to use. This command will replace the commit message of the last commit.
-    
-2. **Add Changes:**
-    
-    If you've made additional changes to the files in your working directory that you want to include in the last commit, follow these steps:
-    
-    a. Make your changes to the files.
-    
-    b. Stage those changes using **`git add`**.
-    
-    c. Use **`git commit --amend`** without the **`-m`** option:
-    
-    ```sh
-    git commit --amend
-    ```
-    
-    This will open your default text editor, allowing you to modify the commit message if needed. Save and close the editor to finalize the commit.
-    
 
-**Important Note:** 
+   If you want to modify the commit message of the last commit, you can use the following command:
+
+   ```sh
+   git commit --amend -m "New commit message"
+   ```
+
+   Replace "New commit message" with the updated message you want to use. This command will replace the commit message of the last commit.
+
+2. **Add Changes:**
+
+   If you've made additional changes to the files in your working directory that you want to include in the last commit, follow these steps:
+
+   a. Make your changes to the files.
+
+   b. Stage those changes using **`git add`**.
+
+   c. Use **`git commit --amend`** without the **`-m`** option:
+
+   ```sh
+   git commit --amend
+   ```
+
+   This will open your default text editor, allowing you to modify the commit message if needed. Save and close the editor to finalize the commit.
+
+**Important Note:**
+
 > Be cautious when using **`git commit --amend`**, especially if you've already pushed the original commit to a shared repository. Modifying a commit rewrites its history, which can cause problems for collaborators. It's generally safe to use **`git commit --amend`** for commits that haven't been pushed yet, but exercise caution when making changes to shared commits.
 
-- With ***git revert***, a new commit is created with inverse changes. This cancels previous changes instead of making it as though the original commit never happened.
+- With **_git revert_**, a new commit is created with inverse changes. This cancels previous changes instead of making it as though the original commit never happened.
 
 The **`git revert`** command is used to create a new commit that undoes the changes made in a previous commit. It's a safe way to reverse the effects of a commit without rewriting Git history. When you run **`git revert`**, Git will create a new commit with the opposite changes, effectively "reverting" the commit you specify.
 
@@ -293,6 +320,7 @@ This will revert all the commits in the range from **`abcdef123456`** (inclusive
 In Git, each branch is essentially a pointer to a specific commit within a series of snapshots. This concept is fundamental to understanding how Git manages version control.
 
 **Note**
+
 ```sh
 # Here’s a complete example of changing the last commit message already pushed:
 
@@ -311,7 +339,7 @@ Here's a breakdown of the key points:
 4. **Branching and Merging:** You can create branches to work on new features, bug fixes, or experiments independently. When you make new commits on a branch, the branch pointer moves forward to the latest commit. When you merge one branch into another, Git essentially combines the changes from both branches and updates the branch pointer to the new merge commit.
 5. **Branching Workflow:** Git's branching model allows you to easily switch between different snapshots of your project, collaborate with others, and maintain a clear history of changes.
 
-- ***git checkout*** switch branches by: The HEAD is moved to the relevant commit on the specified branch.
+- **_git checkout_** switch branches by: The HEAD is moved to the relevant commit on the specified branch.
 
 - If there are changes in the branch we want to delete that haven't been merged back into the master branch, git will let us know with an error.
 - Merging combines branched data and history together.
@@ -353,6 +381,7 @@ git branch -D <name>
 ```
 
 ## Merging
+
 Merging combines changes from one branch into another. Use the following command:
 
 ```bash
@@ -361,6 +390,7 @@ git merge <branch>
 ```
 
 ### Merge Conflicts
+
 Sometimes, conflicts arise when Git can't automatically merge changes. To resolve conflicts:
 
 ```bash
@@ -391,11 +421,11 @@ Follow the workflow at [https://github.com/join](https://github.com/join) to set
 
 Some useful commands for getting started:
 
-| Command       | Explanation & Link                                      |
-| ------------- | ------------------------------------------------------- |
-| `git clone URL` | Git clone is used to clone a remote repository into a local workspace |
-| `git push`     | Git push is used to push commits from your local repo to a remote repo |
-| `git pull`     | Git pull is used to fetch the newest updates from a remote repository. This can be useful for keeping your local workspace up to date. |
+| Command         | Explanation & Link                                                                                                                     |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `git clone URL` | Git clone is used to clone a remote repository into a local workspace                                                                  |
+| `git push`      | Git push is used to push commits from your local repo to a remote repo                                                                 |
+| `git pull`      | Git pull is used to fetch the newest updates from a remote repository. This can be useful for keeping your local workspace up to date. |
 
 Additional helpful links:
 
@@ -410,31 +440,31 @@ In Git, a **remote** is like a connection to another copy of a repository, typic
 
 ### Working with Remote
 
- `git remote`
+`git remote`
 
 When you run `git remote`, Git tells you the names of all the connections (remotes) you have to other repositories. Imagine it as a list of your project's friends – these are the remotes you can interact with.
 
- `git remote -v`
+`git remote -v`
 
 Adding `-v` to the command shows not only the names of your remotes but also the web addresses (URLs) where they live. It's like getting the phone numbers of your project's friends so you can call them when needed.
 
- `git remote show <name>`
+`git remote show <name>`
 
 This command is like asking for more details about one of your project's friends. It tells you information about a specific remote, such as what branches it knows about and where it lives on the internet.
 
 ### Fetching New Changes
 
- `git remote update`
+`git remote update`
 
 When you tell Git to `update`, it's like asking your project's friends if they have any news or updates for you. This command fetches the latest information from the remote repositories, making sure your project stays informed.
 
- `git fetch`
+`git fetch`
 
 Fetching is like getting a newspaper delivered to your door without actually reading it. Git `fetch`es changes from remote but doesn't automatically apply them to your project. It's a way to see what's new without making changes to your project.
 
 ### Updating the Local Repository
 
- `git branch -r`
+`git branch -r`
 
 Running this command is like looking at a list of your project's friends and seeing what they are up to. It shows you a list of remote branches, which are like versions of the project that live in other places. This way, you can stay aware of the different branches in your project's network.
 
@@ -498,7 +528,7 @@ git fetch origin remote-branch
 git rebase origin/remote-branch
 ```
 
-*👉 **Note** :* 
+_👉 **Note** :_
 
 > In interactive rebase, the default option for taking commits and rebasing them against the branch you selected is pick. The pick option is used to indicate that you want to keep the selected commit as-is during the rebase.
 
@@ -513,7 +543,6 @@ Here's what each of the options does in an interactive rebase:
 - reword: This option allows you to edit the commit message of the selected commit.
 
 By default, when you start an interactive rebase, all the commits are listed with the pick option, indicating that they will be rebased as-is. You can then interactively choose to modify the behavior of each commit by changing its action in the rebase script.
-
 
 ### Fetch-Rebase-Push Workflow
 
@@ -679,6 +708,7 @@ git push origin branch-name
 ```
 
 ## Creating a Pull Request
+
 After pushing your changes, create a pull request from your GitHub account:
 
 - Visit your forked repository on GitHub.
@@ -726,13 +756,13 @@ git push -f origin branch-name
 
 #### Reviewer's Feedback
 
--  Reviewers examine the code and provide feedback.
-    - This feedback can include suggestions for improvement and identifying issues.
+- Reviewers examine the code and provide feedback.
+  - This feedback can include suggestions for improvement and identifying issues.
 
 #### Addressing Review Comments
 
 - Developers address review comments, making necessary changes.
-    - This may involve fixing typos, adding missing tests, or implementing suggested improvements.
+  - This may involve fixing typos, adding missing tests, or implementing suggested improvements.
 
 #### Marking Comments as Resolved
 
@@ -741,7 +771,7 @@ git push -f origin branch-name
 #### Seeking Clarification
 
 - Developers can seek clarification from reviewers by replying to comments if they are unsure about a particular issue or suggestion.
-    - Comments that need further discussion are not marked as resolved.
+  - Comments that need further discussion are not marked as resolved.
 
 #### Approval and Merging
 
@@ -753,14 +783,14 @@ git push -f origin branch-name
 ### Types of Comments
 
 - Reviewers may provide a range of comments, including:
-    - Critical issues that require significant fixes.
-    - Minor suggestions for code improvement, often labeled as "Nits."
+  - Critical issues that require significant fixes.
+  - Minor suggestions for code improvement, often labeled as "Nits."
 
 #### Improving Code Clarity
 
 - It's essential to use feedback as an opportunity to enhance code clarity.
-    - This can involve improving variable names or breaking down complex code into smaller functions.
-    - Adding comments and documentation to explain the "how" and "why" of code.
+  - This can involve improving variable names or breaking down complex code into smaller functions.
+  - Adding comments and documentation to explain the "how" and "why" of code.
 
 #### Style Guide Adherence
 
@@ -772,7 +802,7 @@ git push -f origin branch-name
 ### Approval Workflow
 
 - Different code review tools may have varying approval workflows.
-   - Some require approval from project maintainers, while others need a few "+1s" from contributors.
+  - Some require approval from project maintainers, while others need a few "+1s" from contributors.
 
 #### Ensuring Quality
 
@@ -783,8 +813,8 @@ git push -f origin branch-name
 #### Benefits
 
 - Code reviews benefit projects of all sizes and complexities.
-   - They facilitate team agreement on coding standards and approaches.
-   - They provide a second set of eyes to identify issues and improvements.
+  - They facilitate team agreement on coding standards and approaches.
+  - They provide a second set of eyes to identify issues and improvements.
 
 ## Tracking Issues in Project Management
 
@@ -871,7 +901,7 @@ There's a large world of tools and platforms related to CI/CD which is what the 
 
 ## CI/CD Concepts
 
-### The first one is the concept of **Pipelines**. 
+### The first one is the concept of **Pipelines**.
 
 A pipeline in CI/CD is a series of automated steps or stages that code changes go through from development to deployment. Pipelines are crucial for ensuring that code is thoroughly tested, built, and deployed in a controlled and consistent manner. Here's a breakdown of what pipelines typically include:
 
